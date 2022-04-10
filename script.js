@@ -23,17 +23,15 @@ function playRound() {
     if (pSelect.toLowerCase() == cSelect().toLowerCase()) {
     console.log(++tieCount);
     return tie;
-    } else if ((pSelect.toLowerCase() == 'rock' && cSelect() == 'Scissors') || (pSelect.toLowerCase() == 'paper' && cSelect() == 'Rock') || (pSelect.toLowerCase() == 'scissors' && cSelect() == 'Paper')) {
+    } else if ((pSelect.toLowerCase() == 'rock' && cSelect() == 'Scissors') 
+    || (pSelect.toLowerCase() == 'paper' && cSelect() == 'Rock') 
+    || (pSelect.toLowerCase() == 'scissors' && cSelect() == 'Paper')) {
     console.log(++pScore);
     return win;
     } else {
     console.log(++cScore);
     return lose;
 }
-}
-
-for (i=0; i<5; i++) {
-    alert(playRound());
 }
 
 function game() {
@@ -54,8 +52,29 @@ return draw;
 
 alert(game());
 
-    
-    
+const body = document.getElementsByTagName('body');
+
+const select = document.createElement('div');
+document.body.appendChild(select);
+
+const rock = document.createElement('button');
+rock.textContent = "Rock";
+rock.addEventListener("click", playRound);
+
+select.appendChild(rock);
+
+const paper = document.createElement('button');
+paper.textContent = "paper";
+paper.addEventListener("click", playRound);
+
+select.appendChild(paper);
+
+const scissors = document.createElement('button');
+scissors.textContent = "scissors";
+scissors.addEventListener("click", playRound);
+
+select.appendChild(scissors);
+
 
 
 
