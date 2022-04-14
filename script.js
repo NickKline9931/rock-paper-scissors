@@ -108,11 +108,28 @@ if (pScore == 5){
 }
 
 function endGame() {
-    if (pScore == 5 || cScore == 5){
-        rock.removeEventListener('click', updateScore);
-        paper.removeEventListener('click', updateScore);
-        scissors.removeEventListener('click', updateScore);
-    }
+if (pScore == 5 || cScore == 5){
+    rock.removeEventListener('click', updateScore);
+    paper.removeEventListener('click', updateScore);
+    scissors.removeEventListener('click', updateScore);
+}
+}
+
+const resetButton = document.createElement('button');
+resetButton.textContent = "Reset";
+document.body.appendChild(resetButton);
+resetButton.addEventListener('click', resetScore);
+
+function resetScore(){
+pScore = 0;
+cScore = 0;
+tieCount = 0;
+player.textContent = `Player Score: ${pScore}`;
+com.textContent = `Computer Score: ${cScore}`;
+ties.textContent = `Ties: ${tieCount}`;
+scissors.addEventListener("click", updateScore);
+paper.addEventListener("click", updateScore);
+rock.addEventListener("click", updateScore);
 }
 
 
